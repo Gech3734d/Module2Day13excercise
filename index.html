@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bole Weather - Ethiopia</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="app">
+
+        <!--  HEADER-->
+        <header class="header">
+            <div class="brand">
+                <div class="logo">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <div>
+                    <h1>Bole Weather</h1>
+                    <span>Ethiopia</span>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input type="text" id="cityInput" placeholder="Search Ethiopian city...">
+                <button id="searchBtn">
+                Search
+            </button>
+            </div>
+            <!-- Controls -->
+
+            <div class="controls">
+                <button id="unitBtn" class="control-btn">°C </button>
+                <button id="themeBtn" class="control-btn">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+            </div>
+
+        </header>
+
+
+        <!-- BODY -->
+
+        <div class="layout">
+
+            <!--  SIDEBAR  -->
+
+            <aside class="sidebar">
+                <nav>
+                    <button class="menu-item active" data-page="home">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Home</span>
+                </button>
+                    <button class="menu-item" data-page="alerts">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                    <span>Alerts</span>
+                </button>
+                    <button class="menu-item" data-page="favorites">
+                    <i class="fa-solid fa-star"></i>
+                    <span>Favorites</span>
+                </button>
+                    <button class="menu-item" data-page="weekly">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span>Weekly Report</span>
+                </button>
+                </nav>
+                <div class="sidebar-footer">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>
+                    Ethiopian Weather
+                </span>
+                </div>
+
+            </aside>
+
+            <!-- MAIN  -->
+
+            <main class="main">
+                <!-- HOME PAGE -->
+                <section id="home" class="page active">
+                    <div class="page-header">
+                        <div>
+                            <p>WEATHER DASHBOARD</p>
+                            <h2>
+                                Current Weather
+                            </h2>
+                            <span>
+                            Live weather information
+                        </span>
+                        </div>
+
+                    </div>
+
+                    <!-- Current Weather -->
+                    <div class="dashboard-grid">
+                        <div class="weather-card">
+                            <div class="weather-card-header">
+                                <div>
+                                    <span class="location">
+                   <i class="fa-solid fa-location-dot"></i>
+                                <span id="cityName">
+                                        Bole, Addis Ababa
+                                    </span>
+                                    </span>
+                                    <p id="date">
+                                        Loading date...
+                                    </p>
+
+                                </div>
+                                <button id="favoriteBtn" class="star-btn">
+                             <i class="fa-regular fa-star"></i>
+                               </button>
+
+                            </div>
+
+
+                            <div class="main-weather">
+                                <div id="weatherIcon" class="weather-icon">
+                                    <wa-icon name="cloud"></wa-icon>
+                                </div>
+                                <div>
+                                    <div class="temperature">
+                                        <span id="temperature">
+                                        --
+                                    </span>
+
+                                        <sup>
+                                        °C
+                                    </sup>
+
+                                    </div>
+
+                                    <p id="description">
+                                        Loading weather...
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Weather Details -->
+
+                            <div class="weather-details">
+                                <div class="detail">
+                                    <i class="fa-solid fa-droplet"></i>
+
+                                    <div>
+                                        <small>
+                                        Humidity
+                                       </small>
+                                        <strong id="humidity">
+                                        --%
+                                    </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="detail">
+                                    <i class="fa-solid fa-wind"></i>
+                                    <div>
+                                        <small>
+                                        Wind
+                                      </small>
+                                        <strong id="wind">
+                                        -- km/h
+                                         </strong>
+                                    </div>
+
+                                </div>
+
+                                <div class="detail">
+
+                                    <i class="fa-solid fa-temperature-half"></i>
+                                    <div>
+                                        <small>
+                                        Feels Like
+                                       </small>
+
+                                        <strong id="feelsLike">
+                                        --°
+                                    </strong>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="detail">
+
+                                    <i class="fa-solid fa-umbrella"></i>
+
+                                    <div>
+
+                                        <small>
+                                        Rain Chance
+                                    </small>
+
+                                        <strong id="rain">
+                                        --%
+                                    </strong>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Today's Information -->
+
+                        <div class="today-card">
+
+                            <h3>
+                                Today's Information
+                            </h3>
+                            <div class="info-row">
+
+                                <span>
+                                Sunrise
+                               </span>
+
+                                <strong id="sunrise">
+                                --
+                               </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                Sunset
+                               </span>
+
+                                <strong id="sunset">
+                                --
+                              </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                Wind Direction
+                               </span>
+
+                                <strong id="windDirection">
+                                --
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                Weather
+                               </span>
+
+                                <strong id="todayWeather">
+                                --
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Weekly Forecast -->
+
+                    <div class="section-title">
+
+                        <h2>
+                            7-Day Forecast
+                        </h2>
+                        <span>
+                        Weekly weather forecast
+                       </span>
+
+                    </div>
+
+
+                    <div id="forecast" class="forecast">
+                        <!-- JS forecast -->
+                    </div>
+                </section>
+
+
+                <!--ALERTS  -->
+
+                <section id="alerts" class="page">
+
+                    <div class="page-header">
+
+                        <p>WEATHER NOTIFICATIONS</p>
+
+                        <h2>
+                            Weather Alerts
+                        </h2>
+
+                        <span>
+                        Important weather information
+                    </span>
+
+                    </div>
+
+                    <div id="alertsContainer" class="alerts-container">
+                    </div>
+
+                </section>
+
+
+                <!--  FAVORITES -->
+
+                <section id="favorites" class="page">
+
+                    <div class="page-header">
+
+                        <p>SAVED LOCATIONS</p>
+
+                        <h2>
+                            Favorite Cities
+                        </h2>
+
+                        <span>
+                        Your saved Ethiopian cities
+                    </span>
+
+                    </div>
+
+                    <div id="favoritesContainer" class="favorites-container">
+                    </div>
+
+                </section>
+
+
+                <!--  WEEKLY REPORT-->
+
+                <section id="weekly" class="page">
+
+                    <div class="page-header">
+
+                        <p>WEATHER ANALYSIS</p>
+                        <h2>
+                            Weekly Report
+                        </h2>
+
+                        <span>
+                        Temperature report for the next 7 days
+                    </span>
+
+                    </div>
+
+
+                    <div class="report-card">
+                        <div class="report-top">
+                            <h3>
+                                Weekly Temperature
+                            </h3>
+
+                            <div>
+
+                                <span>
+                                Highest
+                            </span>
+                                <strong id="highest">
+                                --
+                            </strong>
+
+                            </div>
+
+                            <div>
+
+                                <span>
+                                Lowest
+                            </span>
+
+                                <strong id="lowest">
+                                --
+                             </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <div id="chart" class="chart">
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </main>
+
+        </div>
+
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
